@@ -20,20 +20,12 @@ classifiers = [
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3 :: Only",
 ]
-dependencies = ["some-dependency", "another-dependency"]
-
-[project.optional-dependencies]
-dev = ["dev-dependency1", "dev-dependency2"]
-test = ["test-dependency"]
 
 [project.urls]
 "Homepage" = "https://github.com/tnmthai/ggee"
 "Bug Reports" = "https://github.com/tnmthai/ggee/issues"
-Funding = "https://donate.pypi.org"
-Source = "https://github.com/tnmthai/ggee"
-
-[project.scripts]
-ggee-script = "ggee:main"
+"Funding" = "https://donate.pypi.org"
+"Source" = "https://github.com/tnmthai/ggee"
 
 [tool.setuptools]
 package-data = {"ggee" = ["data/*.dat"]}
