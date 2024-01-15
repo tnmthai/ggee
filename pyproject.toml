@@ -8,18 +8,7 @@ license = {file = "LICENSE.txt"}
 keywords = ["google earth engine", "geospatial", "data analysis"]
 authors = [{name = "Thai Tran", email = "ThaiTran@outlook.com"}]
 maintainers = [{name = "Thai Tran", email = "ThaiTran@outlook.com"}]
-classifiers = [
-    "Development Status :: 3 - Alpha",
-    "Intended Audience :: Developers",
-    "License :: OSI Approved :: MIT License",
-    "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.7",
-    "Programming Language :: Python :: 3.8",
-    "Programming Language :: Python :: 3.9",
-    "Programming Language :: Python :: 3.10",
-    "Programming Language :: Python :: 3.11",
-    "Programming Language :: Python :: 3 :: Only",
-]
+
 
 [project.urls]
 "Homepage" = "https://github.com/tnmthai/ggee"
