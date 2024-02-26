@@ -4,7 +4,7 @@
 
 import unittest
 
-from ggee import add_one
+from tgis import add_one
 
 
 class TestSimple(unittest.TestCase):

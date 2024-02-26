@@ -1,5 +1,5 @@
 [project]
-name = "ggee"
+name = "tgis"
 version = "0.0.1"
 description = "A Python package for Google Earth Engine Tools"
 readme = "README.md"
@@ -11,13 +11,13 @@ maintainers = [{name = "Thai Tran", email = "ThaiTran@outlook.com"}]
 
 
 [project.urls]
-"Homepage" = "https://github.com/tnmthai/ggee"
-"Bug Reports" = "https://github.com/tnmthai/ggee/issues"
+"Homepage" = "https://github.com/tnmthai/tgis"
+"Bug Reports" = "https://github.com/tnmthai/tgis/issues"
 "Funding" = "https://donate.pypi.org"
-"Source" = "https://github.com/tnmthai/ggee"
+"Source" = "https://github.com/tnmthai/tgis"
 
 [tool.setuptools]
-package-data = {"ggee" = ["data/*.dat"]}
+package-data = {"tgis" = ["data/*.dat"]}
 
 [build-system]
 requires = ["setuptools>=43.0.0", "wheel"]

@@ -3,7 +3,7 @@ def ee_init(
     auth_mode="notebook",
     service_account=False,
     auth_args={},
-    user_agent_prefix="ggee",
+    user_agent_prefix="tgis",
     **kwargs,
 ):
     """Authenticates Earth Engine and initializes an Earth Engine session."""
@@ -74,5 +74,5 @@ def get_token():
             credentials = json.load(f)
             return credentials
     else:
-        print("Earth Engine credentials not found. Please run ggee.ee_init()")
+        print("Earth Engine credentials not found. Please run tgis.ee_init()")
         return None
