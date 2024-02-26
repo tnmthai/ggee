@@ -38,7 +38,7 @@ def ee_init(
 
             except Exception as e:
                 raise Exception(e)
-
+ 
         else:
             try:
                 if ee_token is not None:
