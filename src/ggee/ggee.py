@@ -76,3 +76,35 @@ def get_token():
     else:
         print("Earth Engine credentials not found. Please run ggee.ee_init()")
         return None
+
+def SenL2A(date1, date2, aoi):
+    import ee
+    Sen2img = ee.ImageCollection('COPERNICUS/S2_SR') \
+    .filterDate(date1, date2) \
+    .filterBounds(aoi)
+
+    # Get the list of image IDs in the collection.
+    image_ids = Sen2img.aggregate_array('system:index').getInfo()
+
+    # Initialize an empty list to store the details.
+    image_details = []
+
+    # Iterate over each image ID to get its date and cloud coverage percentage.
+    for image_id in image_ids:
+        # Get the image corresponding to the current ID.
+        img = Sen2img.filter(ee.Filter.eq('system:index', image_id)).first()
+        
+        # Extract the acquisition date of the image.
+        date = img.date().format('yyyy-MM-dd').getInfo()
+        
+        # Extract the cloud coverage percentage from the image metadata.
+        cloud_coverage = img.get('CLOUDY_PIXEL_PERCENTAGE').getInfo()
+        
+        # Append the details as a tuple to the list.
+        image_details.append((date, image_id, cloud_coverage))
+
+    # Now, `image_details` contains all the information.
+    print("Date, Image ID, Cloud Coverage")
+    for detail in image_details:
+        print(detail)
+    return detail
