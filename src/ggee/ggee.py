@@ -107,4 +107,4 @@ def SenL2A(date1, date2, aoi):
     print("Date, Image ID, Cloud Coverage")
     for detail in image_details:
         print(detail)
-    return detail
+    return image_details
