@@ -1,12 +1,12 @@
-# Earth Engine Initialization Library
+# Google Earth Engine Initialization Library
 
 This library provides a set of functions to authenticate and initialize Google Earth Engine (EE) sessions, retrieve EE tokens, and query Sentinel-2 image data. It supports both service account-based and token-based authentication, making it suitable for a wide range of EE applications.
 
 ## Features
 
-- **EE Session Initialization**: Authenticate and initialize an EE session using either a service account or a personal account token.
-- **Token Retrieval**: Retrieve an EE token from a local file for subsequent EE operations.
-- **Sentinel-2 Image Query**: Query Sentinel-2 images by date range and area of interest (AOI), with details about each image's acquisition date and cloud coverage.
+- **ee_init()**: Authenticate and initialize an EE session using either a service account or a personal account token.
+- **get_token()**: Retrieve an EE token from a local file for subsequent EE operations.
+- **SenL2A(startdate, enddate, aoi)**: Query Sentinel-2 images by date range and area of interest (AOI), with details about each image's acquisition date and cloud coverage.
 
 ## Installation
 
@@ -14,6 +14,7 @@ Before using this library, ensure you have the Earth Engine Python API installed
 
 ```bash
 pip install earthengine-api
+pip install ggee
 ```
 
 ## Usage
