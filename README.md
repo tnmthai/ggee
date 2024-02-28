@@ -1,39 +1,63 @@
-# A sample Python project
+# Earth Engine Initialization Library
 
-![Python Logo](https://www.python.org/static/community_logos/python-logo.png "Sample inline image")
+This library provides a set of functions to authenticate and initialize Google Earth Engine (EE) sessions, retrieve EE tokens, and query Sentinel-2 image data. It supports both service account-based and token-based authentication, making it suitable for a wide range of EE applications.
 
-A sample project that exists as an aid to the [Python Packaging User
-Guide][packaging guide]'s [Tutorial on Packaging and Distributing
-Projects][distribution tutorial].
+## Features
 
-This project does not aim to cover best practices for Python project
-development as a whole. For example, it does not provide guidance or tool
-recommendations for version control, documentation, or testing.
+- **EE Session Initialization**: Authenticate and initialize an EE session using either a service account or a personal account token.
+- **Token Retrieval**: Retrieve an EE token from a local file for subsequent EE operations.
+- **Sentinel-2 Image Query**: Query Sentinel-2 images by date range and area of interest (AOI), with details about each image's acquisition date and cloud coverage.
 
-[The source for this project is available here][src].
+## Installation
 
-The metadata for a Python project is defined in the `pyproject.toml` file,
-an example of which is included in this project. You should edit this file
-accordingly to adapt this sample project to your needs.
+Before using this library, ensure you have the Earth Engine Python API installed. You can install it using pip:
 
-----
+```bash
+pip install earthengine-api
+```
 
-This is the README file for the project.
+## Usage
+### Initializing Earth Engine
 
-The file should use UTF-8 encoding and can be written using
-[reStructuredText][rst] or [markdown][md use] with the appropriate [key set][md
-use]. It will be used to generate the project webpage on PyPI and will be
-displayed as the project homepage on common code-hosting services, and should be
-written for that purpose.
+```bash
+from ggee import *
 
-Typical contents for this file would include an overview of the project, basic
-usage examples, etc. Generally, including the project changelog in here is not a
-good idea, although a simple “What's New” section for the most recent version
-may be appropriate.
+# Initialize EE without service account (token-based authentication)
+ee_init()
 
-[packaging guide]: https://packaging.python.org
-[distribution tutorial]: https://packaging.python.org/tutorials/packaging-projects/
-[src]: https://github.com/pypa/sampleproject
-[rst]: http://docutils.sourceforge.net/rst.html
-[md]: https://tools.ietf.org/html/rfc7764#section-3.5 "CommonMark variant"
-[md use]: https://packaging.python.org/specifications/core-metadata/#description-content-type-optional
+# Initialize EE with service account
+ee_init(service_account=True)
+```
+### Retrieving Earth Engine Token
+
+
+```bash
+from your_library_name import get_token
+
+# Retrieve and print the EE token
+token = get_token()
+print(token)
+```
+
+### Querying Sentinel-2 Images
+
+
+```bash
+from ggee import SenL2A
+import ee
+
+# Define your area of interest (AOI)
+aoi = ee.Geometry.Rectangle([minLon, minLat, maxLon, maxLat])
+
+# Query Sentinel-2 images
+image_details = SenL2A('2021-01-01', '2021-01-31', aoi)
+
+# Print image details
+for detail in image_details:
+    print(detail)
+```
+## Contributing
+Contributions to this library are welcome. Please feel free to fork the repository, make your changes, and submit a pull request.
+
+## License
+This project is licensed under the MIT License - see the LICENSE file for details.
