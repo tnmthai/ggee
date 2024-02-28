@@ -1,4 +1,4 @@
-# Google Earth Engine Initialization Library
+# Google Earth Engine Tool
 
 This library provides a set of functions to authenticate and initialize Google Earth Engine (EE) sessions, retrieve EE tokens, and query Sentinel-2 image data. It supports both service account-based and token-based authentication, making it suitable for a wide range of EE applications.
 
