@@ -48,7 +48,7 @@ from ggee import SenL2A
 import ee
 
 # Define your area of interest (AOI)
-aoi = ee.Geometry.Rectangle([minLon, minLat, maxLon, maxLat])
+aoi = ee.Geometry.Rectangle([172.1057, -43.7345, 172.1701, -43.716])
 
 # Query Sentinel-2 images
 image_details = SenL2A('2021-01-01', '2021-01-31', aoi)
