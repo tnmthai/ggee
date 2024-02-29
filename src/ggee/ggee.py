@@ -108,3 +108,19 @@ def SenL2A(date1, date2, aoi):
     for detail in image_details:
         print(detail)
     return image_details
+
+def coordshp(minLon, minLat, maxLon, maxLat, filename="bbox_shapefile.shp"):
+    import geopandas as gpd
+    from shapely.geometry import Polygon
+
+    # Example bbox coordinates
+    bbox = [[minLon, minLat], [maxLon, maxLat]]
+
+    # Convert bbox to Polygon
+    polygon = Polygon([(bbox[0][0], bbox[0][1]), (bbox[1][0], bbox[0][1]), (bbox[1][0], bbox[1][1]), (bbox[0][0], bbox[1][1])])
+
+    # Create a GeoDataFrame
+    gdf = gpd.GeoDataFrame(index=[0], crs='EPSG:4326', geometry=[polygon])
+
+    # Export to Shapefile
+    gdf.to_file(filename)
