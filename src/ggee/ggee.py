@@ -77,12 +77,12 @@ def get_token():
         print("Earth Engine credentials not found. Please run ggee.ee_init()")
         return None
 
-def SenL2A(date1, date2, aoi):
+def SenL2A(date1, date2, aoi, cpp=100):
     import ee
     Sen2img = ee.ImageCollection('COPERNICUS/S2_SR') \
     .filterDate(date1, date2) \
-    .filterBounds(aoi)
-
+    .filterBounds(aoi) \
+    .filter(ee.Filter.lt("CLOUDY_PIXEL_PERCENTAGE", cpp)) \
     # Get the list of image IDs in the collection.
     image_ids = Sen2img.aggregate_array('system:index').getInfo()
 
